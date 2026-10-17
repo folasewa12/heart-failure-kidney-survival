@@ -67,6 +67,8 @@ No missing values or duplicate rows.
    fraction, serum sodium, anaemia, diabetes, high blood pressure and smoking; eGFR as a continuous term and as groups.
 4. **Checks:** proportional-hazards test (`cox.zph`), a piecewise term to test linearity around eGFR 60,
    and a sensitivity analysis excluding suspected imputed creatinine values.
+   The proportional-hazards assumption held overall (global p = 0.26) and for eGFR (p = 0.07);
+   ejection fraction showed some sign that its effect changes over follow-up (p = 0.04).
 
 | Step | Script |
 |---|---|
@@ -80,6 +82,8 @@ No missing values or duplicate rows.
 - **Observational data** – associations, not causes; unmeasured factors (medication, cause of heart failure) are not available.
 - **Short, uneven follow-up** (4–285 days) – survival late in follow-up rests on few patients.
 - **eGFR from one creatinine reading** – clinical CKD staging requires two readings at least 3 months apart.
+- **Ejection fraction and proportional hazards** – its hazard ratio may vary over follow-up (cox.zph p = 0.04);
+  a stratified model would be the next refinement.
 - **Age enters twice** – age is part of the eGFR equation and also a model covariate; replacing eGFR with log serum
   creatinine gives the same conclusion (HR 2.57 per log unit, 1.72–3.85).
 
